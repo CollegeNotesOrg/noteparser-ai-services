@@ -1,0 +1,53 @@
+# RagFlow Service Configuration
+service:
+  name: ragflow
+  version: "1.0.0"
+  port: 8010
+
+# RAG Configuration
+rag:
+  embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+  vector_db_type: "faiss"
+  chunk_size: 1000
+  chunk_overlap: 100
+  top_k: 5
+  temperature: 0.7
+  max_tokens: 2048
+
+# Vector Store Configuration
+vector_store:
+  faiss:
+    index_path: "/data/faiss_index"
+    dimension: 384
+  chroma:
+    persist_directory: "/data/chroma_db"
+  qdrant:
+    host: "qdrant"
+    port: 6333
+    collection: "documents"
+
+# LLM Configuration
+llm:
+  provider: "openai"  # openai, anthropic, local
+  model: "gpt-3.5-turbo"
+  api_key: "${OPENAI_API_KEY}"
+  temperature: 0.7
+  max_tokens: 2048
+
+# Database Configuration
+database:
+  url: "${DATABASE_URL}"
+  pool_size: 10
+  max_overflow: 20
+
+# Cache Configuration
+cache:
+  type: "redis"
+  url: "${REDIS_URL}"
+  ttl: 3600
+
+# Monitoring
+monitoring:
+  enable_metrics: true
+  enable_tracing: true
+  log_level: "INFO"
