@@ -1,0 +1,59 @@
+# DeepWiki Service Configuration
+service:
+  name: deepwiki
+  version: "1.0.0"
+  port: 8011
+
+# Wiki Configuration
+wiki:
+  data_path: "/data/wiki"
+  auto_link: true
+  versioning: true
+  max_article_length: 10000
+  similarity_threshold: 0.7
+
+# AI Configuration
+ai:
+  provider: "openai"  # openai, anthropic, local
+  model: "gpt-3.5-turbo"
+  api_key: "${OPENAI_API_KEY}"
+  temperature: 0.7
+  max_tokens: 2048
+  enhancement: true
+
+# Search Configuration
+search:
+  engine: "whoosh"
+  index_path: "/data/wiki/search_index"
+  enable_fuzzy: true
+  max_results: 50
+
+# Database Configuration
+database:
+  url: "${DATABASE_URL}"
+  pool_size: 10
+  max_overflow: 20
+
+# Cache Configuration
+cache:
+  type: "redis"
+  url: "${REDIS_URL}"
+  ttl: 3600
+
+# Knowledge Graph
+graph:
+  enable: true
+  max_depth: 3
+  algorithm: "networkx"
+
+# Real-time Features
+realtime:
+  enable_websocket: true
+  enable_collaboration: true
+  max_connections: 100
+
+# Monitoring
+monitoring:
+  enable_metrics: true
+  enable_tracing: true
+  log_level: "INFO"
