@@ -1,0 +1,222 @@
+version: '3.8'
+
+services:
+  # RagFlow Service
+  ragflow:
+    build:
+      context: ./ragflow
+      dockerfile: Dockerfile
+    container_name: ragflow-service
+    ports:
+      - "8010:8010"
+    environment:
+      - SERVICE_NAME=ragflow
+      - SERVICE_PORT=8010
+      - EMBEDDING_MODEL=sentence-transformers/all-MiniLM-L6-v2
+      - VECTOR_DB_TYPE=faiss
+      - CHUNK_SIZE=1000
+      - CHUNK_OVERLAP=100
+      - INDEX_PATH=/data/faiss_index
+      - DATABASE_URL=postgresql://noteparser:noteparser@postgres:5432/ragflow
+      - REDIS_URL=redis://redis:6379/1
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - DEBUG=false
+    volumes:
+      - ragflow-data:/data
+      - ./ragflow/config.yaml:/app/config.yaml:ro
+    networks:
+      - ai-services-network
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8010/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # DeepWiki Service
+  deepwiki:
+    build:
+      context: ./deepwiki
+      dockerfile: Dockerfile
+    container_name: deepwiki-service
+    ports:
+      - "8011:8011"
+    environment:
+      - SERVICE_NAME=deepwiki
+      - SERVICE_PORT=8011
+      - WIKI_DATA_PATH=/data/wiki
+      - DATABASE_URL=postgresql://noteparser:noteparser@postgres:5432/deepwiki
+      - REDIS_URL=redis://redis:6379/2
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AI_ENHANCEMENT=true
+      - DEBUG=false
+    volumes:
+      - deepwiki-data:/data
+      - ./deepwiki/config.yaml:/app/config.yaml:ro
+    networks:
+      - ai-services-network
+    depends_on:
+      - postgres
+      - redis
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8011/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Vector Database (Qdrant)
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: qdrant-vector-db
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant-data:/qdrant/storage
+    environment:
+      - QDRANT__SERVICE__GRPC_PORT=6334
+    networks:
+      - ai-services-network
+    restart: unless-stopped
+
+  # Alternative Vector Database (Weaviate)
+  weaviate:
+    image: semitechnologies/weaviate:latest
+    container_name: weaviate-vector-db
+    ports:
+      - "8080:8080"
+    environment:
+      - QUERY_DEFAULTS_LIMIT=25
+      - AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED=true
+      - PERSISTENCE_DATA_PATH=/var/lib/weaviate
+      - DEFAULT_VECTORIZER_MODULE=none
+      - CLUSTER_HOSTNAME=node1
+    volumes:
+      - weaviate-data:/var/lib/weaviate
+    networks:
+      - ai-services-network
+    restart: unless-stopped
+
+  # PostgreSQL for services
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: ai-services-postgres
+    environment:
+      - POSTGRES_USER=noteparser
+      - POSTGRES_PASSWORD=noteparser
+      - POSTGRES_MULTIPLE_DATABASES=ragflow,deepwiki,dolphin,langextract
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./scripts/init-postgres.sh:/docker-entrypoint-initdb.d/init.sh
+    ports:
+      - "5434:5432"
+    networks:
+      - ai-services-network
+    restart: unless-stopped
+
+  # Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: ai-services-redis
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    networks:
+      - ai-services-network
+    restart: unless-stopped
+
+  # Model Server (Triton Inference Server)
+  triton:
+    image: nvcr.io/nvidia/tritonserver:23.10-py3
+    container_name: triton-model-server
+    ports:
+      - "8001:8001"  # HTTP
+      - "8002:8002"  # gRPC
+      - "8003:8003"  # Metrics
+    volumes:
+      - ./models:/models
+    command: tritonserver --model-repository=/models
+    networks:
+      - ai-services-network
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+  # Jupyter Lab for development/testing
+  jupyter:
+    image: jupyter/datascience-notebook:latest
+    container_name: ai-services-jupyter
+    ports:
+      - "8888:8888"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=noteparser
+    volumes:
+      - ./notebooks:/home/jovyan/work
+      - jupyter-data:/home/jovyan
+    networks:
+      - ai-services-network
+    restart: unless-stopped
+
+  # MinIO for model storage
+  minio:
+    image: minio/minio:latest
+    container_name: minio-model-storage
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      - MINIO_ROOT_USER=minioadmin
+      - MINIO_ROOT_PASSWORD=minioadmin
+    volumes:
+      - minio-data:/data
+    command: server /data --console-address ":9001"
+    networks:
+      - ai-services-network
+    restart: unless-stopped
+
+  # Nginx reverse proxy
+  nginx:
+    image: nginx:alpine
+    container_name: ai-services-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/sites-enabled:/etc/nginx/sites-enabled:ro
+      - nginx-certs:/etc/nginx/certs
+    networks:
+      - ai-services-network
+    depends_on:
+      - ragflow
+      - deepwiki
+    restart: unless-stopped
+
+networks:
+  ai-services-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  ragflow-data:
+  deepwiki-data:
+  qdrant-data:
+  weaviate-data:
+  postgres-data:
+  redis-data:
+  minio-data:
+  jupyter-data:
+  nginx-certs:
