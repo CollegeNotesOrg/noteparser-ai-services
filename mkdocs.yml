@@ -1,0 +1,136 @@
+site_name: NoteParser AI Services Documentation
+site_description: Advanced AI backend services for intelligent document processing and knowledge organization
+site_author: Suryansh Sijwali
+site_url: https://collegenotesorg.github.io/noteparser-ai-services/
+
+repo_name: CollegeNotesOrg/noteparser-ai-services
+repo_url: https://github.com/CollegeNotesOrg/noteparser-ai-services
+edit_uri: edit/master/docs/
+
+copyright: Copyright &copy; 2025 Suryansh Sijwali
+
+theme:
+  name: material
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.action.edit
+    - content.action.view
+    - navigation.footer
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: date
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - tables
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/CollegeNotesOrg/noteparser-ai-services
+    - icon: fontawesome/brands/docker
+      link: https://hub.docker.com/r/noteparser/ai-services
+  version:
+    provider: mike
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/config.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Quick Start: quickstart.md
+    - Installation: installation.md
+    - Configuration: configuration.md
+  - Services:
+    - RagFlow Service: services/ragflow.md
+    - DeepWiki Service: services/deepwiki.md
+    - Vector Databases: services/vector-databases.md
+  - Deployment:
+    - Development: deployment.md
+    - Production: deployment/production.md
+    - Cloud Providers: deployment/cloud.md
+    - Kubernetes: deployment/kubernetes.md
+  - API Reference:
+    - Overview: api-reference.md
+    - RagFlow API: api/ragflow.md
+    - DeepWiki API: api/deepwiki.md
+    - Authentication: api/authentication.md
+  - Operations:
+    - Monitoring: operations/monitoring.md
+    - Logging: operations/logging.md
+    - Troubleshooting: operations/troubleshooting.md
+    - Performance: operations/performance.md
+  - Development:
+    - Contributing: development/contributing.md
+    - Architecture: development/architecture.md
+    - Testing: development/testing.md
