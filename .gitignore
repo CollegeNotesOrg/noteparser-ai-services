@@ -1,0 +1,327 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# celery beat schedule file
+celerybeat-schedule
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# AI/ML specific
+*.pkl
+*.pickle
+*.h5
+*.hdf5
+*.ckpt
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+models/downloaded/
+models/cache/
+models/temp/
+
+# Vector databases
+data/faiss_index/
+data/qdrant/
+data/weaviate/
+data/chroma/
+*.faiss
+*.index
+
+# Logs
+logs/
+*.log
+*.out
+*.err
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+data/postgres/
+data/redis/
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+*.tmp
+*.temp
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# Certificates and secrets
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+secrets/
+.secrets/
+
+# Configuration overrides
+config.local.yaml
+config.local.yml
+.env.local
+.env.production
+.env.development
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Node.js (if any frontend components)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Jupyter Lab
+.jupyter/
+
+# Model artifacts
+artifacts/
+experiments/
+wandb/
+mlruns/
+.neptune/
+
+# Large files
+*.tar.gz
+*.zip
+*.rar
+*.7z
+*.iso
+
+# Cache directories
+.cache/
+cache/
+__cache__/
+
+# OS generated files
+.Spotlight-V100
+.Trashes
+.fseventsd
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# JetBrains
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Vim
+*.swp
+*.swo
+.viminfo
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# Local development
+.local/
+local/
+dev/
+development/
+
+# Test outputs
+test_outputs/
+test_results/
+benchmarks/
+
+# Monitoring data
+prometheus_data/
+grafana_data/
+metrics/
+
+# SSL certificates
+ssl/
+certs/
+
+# Backup and temporary Docker volumes
+docker_data/
+volumes/
+
+# Triton model repository temp files
+models/.tmp/
+models/*/config.pbtxt.bak
+
+# MinIO data
+minio_data/
+
+# Jupyter notebooks with outputs (optional - comment out if you want to keep outputs)
+# *.ipynb
+
+# Documentation build artifacts
+docs/site/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+
+# Python virtual environments
+.virtualenv
+.pyenv
+.conda
+
+# AI service specific data
+ragflow/data/
+deepwiki/data/
+dolphin/data/
+langextract/data/
+
+# Development databases
+dev.db
+test.db
+development.sqlite
+
+# Load testing results
+k6_results/
+load_test_results/
+
+# Benchmark data
+benchmarks/results/
+performance_tests/
+
+# Custom ignore patterns (add your own below)
+# Add any project-specific files or directories here
