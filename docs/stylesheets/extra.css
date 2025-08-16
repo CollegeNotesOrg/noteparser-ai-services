@@ -1,0 +1,366 @@
+/* Custom styles for NoteParser AI Services documentation */
+
+:root {
+  --md-primary-fg-color: #673ab7;
+  --md-primary-fg-color--light: #9c27b0;
+  --md-primary-fg-color--dark: #512da8;
+  --md-accent-fg-color: #9c27b0;
+}
+
+/* Hero section styling */
+.hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  text-align: center;
+  opacity: 0.9;
+}
+
+/* Service cards */
+.service-card {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.service-card h3 {
+  color: #673ab7;
+  margin-bottom: 0.5rem;
+}
+
+/* Code block enhancements */
+.highlight {
+  border-radius: 0.5rem;
+  margin: 1rem 0;
+}
+
+/* API endpoint styling */
+.api-endpoint {
+  background: #f8f9fa;
+  border-left: 4px solid #673ab7;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.api-endpoint code {
+  background: #673ab7;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+}
+
+/* Status badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.status-success {
+  background: #4caf50;
+  color: white;
+}
+
+.status-warning {
+  background: #ff9800;
+  color: white;
+}
+
+.status-error {
+  background: #f44336;
+  color: white;
+}
+
+/* Grid layout for cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.grid .card {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
+  transition: all 0.2s ease;
+}
+
+.grid .card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+}
+
+.grid .card h3 {
+  color: #673ab7;
+  margin-top: 0;
+}
+
+/* Architecture diagram styling */
+.architecture-diagram {
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 0.5rem;
+}
+
+/* Performance metrics styling */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.metric-card {
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 0.5rem;
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+}
+
+.metric-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Timeline styling for roadmap */
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.5rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #673ab7;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-left: 1rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -0.75rem;
+  top: 0.5rem;
+  width: 1rem;
+  height: 1rem;
+  background: #673ab7;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px #673ab7;
+}
+
+/* Button styling */
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.button-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+  color: white;
+}
+
+/* Table enhancements */
+table {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+table th {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: bold;
+}
+
+table tr:nth-child(even) {
+  background: #f8f9fa;
+}
+
+table tr:hover {
+  background: #e3f2fd;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .button-group {
+    flex-direction: column;
+  }
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #9c27b0;
+  --md-accent-fg-color: #e1bee7;
+}
+
+[data-md-color-scheme="slate"] .service-card {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+  color: #e0e0e0;
+}
+
+[data-md-color-scheme="slate"] .api-endpoint {
+  background: #2a2a2a;
+  border-left-color: #9c27b0;
+}
+
+[data-md-color-scheme="slate"] .grid .card {
+  background: #2a2a2a;
+  border-color: #404040;
+  color: #e0e0e0;
+}
+
+[data-md-color-scheme="slate"] table tr:nth-child(even) {
+  background: #2a2a2a;
+}
+
+[data-md-color-scheme="slate"] table tr:hover {
+  background: #333333;
+}
+
+/* Animation classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-20px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Code copy button styling */
+.md-clipboard {
+  background: #673ab7 !important;
+}
+
+.md-clipboard:hover {
+  background: #512da8 !important;
+}
+
+/* Navigation styling */
+.md-nav__title {
+  font-weight: bold;
+}
+
+.md-nav__item--active > .md-nav__link {
+  color: #673ab7;
+  font-weight: bold;
+}
+
+/* Footer styling */
+.md-footer {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Admonition styling */
+.md-typeset .admonition.tip {
+  border-left-color: #673ab7;
+}
+
+.md-typeset .admonition.tip > .admonition-title {
+  background: #673ab7;
+  border-color: #673ab7;
+}
+
+.md-typeset .admonition.success {
+  border-left-color: #4caf50;
+}
+
+.md-typeset .admonition.success > .admonition-title {
+  background: #4caf50;
+  border-color: #4caf50;
+}
+
+.md-typeset .admonition.info {
+  border-left-color: #2196f3;
+}
+
+.md-typeset .admonition.info > .admonition-title {
+  background: #2196f3;
+  border-color: #2196f3;
+}
