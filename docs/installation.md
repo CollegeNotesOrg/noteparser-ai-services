@@ -533,7 +533,7 @@ python scripts/test_integration.py
 After successful installation:
 
 1. **[Configure Services](configuration.md)** - Customize service settings
-2. **[Set up Monitoring](operations/monitoring.md)** - Add production monitoring
+2. **[Quick Start Guide](quickstart.md)** - Get started quickly
 3. **[API Testing](api-reference.md)** - Test the APIs
 4. **[Deploy to Production](deployment.md)** - Production deployment
 
@@ -559,7 +559,7 @@ cd .. && rm -rf noteparser-ai-services
 
 If you encounter issues during installation:
 
-- 📚 Check the [Troubleshooting Guide](operations/troubleshooting.md)
+- 📚 Check the [Configuration Guide](configuration.md)
 - 💬 Ask questions in [GitHub Discussions](https://github.com/CollegeNotesOrg/noteparser/discussions)
 - 🐛 Report bugs in [GitHub Issues](https://github.com/CollegeNotesOrg/noteparser-ai-services/issues)
 - 📧 Email support: suryanshss1011@gmail.com

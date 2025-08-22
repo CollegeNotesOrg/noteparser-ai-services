@@ -292,7 +292,7 @@ graph TB
 
     Monitoring, logging, and troubleshooting
 
-    [:octicons-arrow-right-24: Operations](operations/monitoring.md)
+    [:octicons-arrow-right-24: Deployment](deployment.md)
 
 </div>
 
@@ -355,7 +355,7 @@ graph TB
 
 ### **Contributing**
 
-We welcome contributions! Check out our [Contributing Guide](development/contributing.md) to get started.
+We welcome contributions! Check out our [GitHub repository](https://github.com/CollegeNotesOrg/noteparser-ai-services) to get started.
 
 ```bash
 # Fork and clone

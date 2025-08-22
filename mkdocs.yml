@@ -111,26 +111,5 @@ nav:
     - Quick Start: quickstart.md
     - Installation: installation.md
     - Configuration: configuration.md
-  - Services:
-    - RagFlow Service: services/ragflow.md
-    - DeepWiki Service: services/deepwiki.md
-    - Vector Databases: services/vector-databases.md
-  - Deployment:
-    - Development: deployment.md
-    - Production: deployment/production.md
-    - Cloud Providers: deployment/cloud.md
-    - Kubernetes: deployment/kubernetes.md
-  - API Reference:
-    - Overview: api-reference.md
-    - RagFlow API: api/ragflow.md
-    - DeepWiki API: api/deepwiki.md
-    - Authentication: api/authentication.md
-  - Operations:
-    - Monitoring: operations/monitoring.md
-    - Logging: operations/logging.md
-    - Troubleshooting: operations/troubleshooting.md
-    - Performance: operations/performance.md
-  - Development:
-    - Contributing: development/contributing.md
-    - Architecture: development/architecture.md
-    - Testing: development/testing.md
+  - Deployment: deployment.md
+  - API Reference: api-reference.md

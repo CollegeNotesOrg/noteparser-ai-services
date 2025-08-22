@@ -330,9 +330,9 @@ curl http://localhost:8011/metrics
 Now that your AI services are running:
 
 1. **[Read the API Reference](api-reference.md)** - Explore all available endpoints
-2. **[Set up Monitoring](operations/monitoring.md)** - Add production monitoring
+2. **[Configuration Guide](configuration.md)** - Configure services for production
 3. **[Deploy to Production](deployment.md)** - Production deployment guides
-4. **[Configure Authentication](api/authentication.md)** - Secure your services
+4. **[API Reference](api-reference.md)** - Complete API documentation
 
 !!! success "You're Ready!"
     Your NoteParser AI Services are now running and ready to process documents and organize knowledge. Start building intelligent applications with semantic search and AI-powered insights!
