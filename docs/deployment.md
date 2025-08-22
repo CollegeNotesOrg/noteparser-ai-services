@@ -2,9 +2,7 @@
 
 Comprehensive guide for deploying NoteParser AI Services in different environments.
 
-## Development Deployment
-
-### Local Development
+## Local Development
 
 **Prerequisites:**
 - Docker Desktop with 8GB+ memory allocated
@@ -746,28 +744,37 @@ docker exec ragflow python -m cProfile -o profile.out service.py
 EXPLAIN ANALYZE SELECT * FROM documents WHERE ...;
 ```
 
-### Deployment Checklist
+## Deployment Checklist
 
-**Pre-deployment:**
-- [ ] Environment variables configured
-- [ ] Database migrations applied
-- [ ] SSL certificates valid
-- [ ] Health checks configured
-- [ ] Monitoring setup
-- [ ] Backup procedures in place
+### Pre-deployment Tasks
 
-**Post-deployment:**
-- [ ] Health checks passing
-- [ ] Metrics being collected
-- [ ] Logs being aggregated
-- [ ] Performance baselines established
-- [ ] Backup procedures tested
-- [ ] Load testing completed
+!!! checklist "Before Deployment"
 
-**Security Checklist:**
-- [ ] API authentication enabled
-- [ ] Network isolation configured
-- [ ] Firewall rules applied
-- [ ] SSL/TLS certificates valid
-- [ ] Secrets properly managed
-- [ ] Container images scanned
+    - [ ] Environment variables configured
+    - [ ] Database migrations applied  
+    - [ ] SSL certificates valid
+    - [ ] Health checks configured
+    - [ ] Monitoring setup
+    - [ ] Backup procedures in place
+
+### Post-deployment Verification
+
+!!! checklist "After Deployment"
+
+    - [ ] Health checks passing
+    - [ ] Metrics being collected
+    - [ ] Logs being aggregated  
+    - [ ] Performance baselines established
+    - [ ] Backup procedures tested
+    - [ ] Load testing completed
+
+### Security Requirements
+
+!!! checklist "Security"
+
+    - [ ] API authentication enabled
+    - [ ] Network isolation configured
+    - [ ] Firewall rules applied
+    - [ ] SSL/TLS certificates valid
+    - [ ] Secrets properly managed
+    - [ ] Container images scanned

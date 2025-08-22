@@ -412,11 +412,9 @@ This project is licensed under the MIT License - see the [LICENSE](https://githu
 
 ---
 
-## 🔗 Related Projects
+## 🔗 Related Project
 
-- **[NoteParser](https://github.com/CollegeNotesOrg/noteparser)** - Main document processing library
-- **[NoteParser Docs](https://noteparser.readthedocs.io)** - Complete documentation
-- **[CollegeNotesOrg](https://github.com/CollegeNotesOrg)** - Organization homepage
+- **[NoteParser](https://github.com/CollegeNotesOrg/noteparser)** - Main document processing library with powerful parsing capabilities for academic documents
 
 ---
 

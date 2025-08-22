@@ -242,7 +242,7 @@ style.textContent = `
     position: absolute;
     top: 8px;
     right: 8px;
-    background: rgba(103, 58, 183, 0.8);
+    background: rgba(33, 150, 243, 0.8);
     color: white;
     border: none;
     padding: 4px 8px;
@@ -254,7 +254,7 @@ style.textContent = `
   }
   
   .copy-button:hover {
-    background: rgba(103, 58, 183, 1);
+    background: rgba(33, 150, 243, 1);
     transform: scale(1.05);
   }
   

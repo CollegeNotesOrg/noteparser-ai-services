@@ -10,8 +10,10 @@ The AI services can be configured using environment variables. Create a `.env` f
 # Core Service Configuration
 RAGFLOW_PORT=8010
 DEEPWIKI_PORT=8011
-DOLPHIN_PORT=8012
-LANGEXTRACT_PORT=8013
+
+# Additional Services (Experimental - Not yet documented)
+# DOLPHIN_PORT=8012
+# LANGEXTRACT_PORT=8013
 
 # Database Configuration
 POSTGRES_HOST=localhost
