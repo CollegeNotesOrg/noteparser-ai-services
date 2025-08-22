@@ -1,0 +1,107 @@
+# LangExtract NLP Service Configuration
+
+service:
+  name: "langextract"
+  version: "1.0.0"
+  description: "Natural Language Processing for academic documents"
+  port: 8013
+  debug: false
+
+# Language processing configuration
+nlp:
+  default_language: "en"
+  supported_languages:
+    - "en"
+    - "es"
+    - "fr"
+    - "de"
+  spacy_model: "en_core_web_sm"
+  max_text_length: 1000000  # 1MB max text size
+
+# Feature configuration
+features:
+  entity_extraction: true
+  relationship_extraction: true
+  key_phrase_extraction: true
+  sentiment_analysis: true
+  readability_analysis: true
+  semantic_analysis: true
+  topic_classification: true
+
+# Entity extraction settings
+entities:
+  confidence_threshold: 0.6
+  max_entities: 100
+  include_academic_terms: true
+  custom_entity_types:
+    - "MATHEMATICAL_TERMS"
+    - "SCIENTIFIC_TERMS"
+    - "CS_TERMS"
+    - "CITATIONS"
+
+# Key phrase extraction
+keyphrases:
+  max_phrases: 50
+  min_frequency: 2
+  include_ngrams: true
+  ngram_range: [1, 3]
+  remove_stop_words: true
+
+# Relationship extraction
+relationships:
+  max_relationships: 50
+  confidence_threshold: 0.5
+  context_window: 100  # characters
+  relationship_types:
+    - "IS_A"
+    - "HAS"
+    - "USES"
+    - "CONTAINS"
+    - "DEPENDS_ON"
+    - "IMPLEMENTS"
+    - "EXTENDS"
+
+# Academic domain patterns
+academic_domains:
+  mathematics:
+    patterns:
+      - "theorem|lemma|corollary|proof|axiom|definition|proposition"
+      - "equation|formula|function|variable|constant|parameter"
+      - "matrix|vector|scalar|tensor|derivative|integral"
+    importance_weight: 1.2
+
+  computer_science:
+    patterns:
+      - "algorithm|data structure|complexity|runtime|memory"
+      - "class|object|method|function|variable|parameter"
+      - "database|query|index|transaction|normalization"
+    importance_weight: 1.1
+
+  science:
+    patterns:
+      - "hypothesis|theory|experiment|methodology|analysis"
+      - "sample|population|variable|correlation|significance"
+      - "model|framework|approach|technique|procedure"
+    importance_weight: 1.0
+
+# Performance settings
+performance:
+  max_concurrent_requests: 10
+  request_timeout: 120  # seconds
+  cache_enabled: true
+  cache_size: 1000  # number of processed texts to cache
+  memory_limit: "2GB"
+
+# Monitoring and logging
+monitoring:
+  metrics_enabled: true
+  log_level: "INFO"
+  health_check_interval: 30
+  prometheus_port: 8014
+
+# Quality control
+quality:
+  min_confidence_score: 0.5
+  enable_spell_check: false
+  enable_grammar_check: false
+  validate_academic_terms: true

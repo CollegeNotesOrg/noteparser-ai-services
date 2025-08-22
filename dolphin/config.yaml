@@ -1,0 +1,73 @@
+# Dolphin PDF Processing Service Configuration
+
+service:
+  name: "dolphin"
+  version: "1.0.0"
+  description: "Advanced PDF processing with layout preservation"
+  port: 8012
+  debug: false
+
+# Processing configuration
+processing:
+  temp_dir: "/tmp/dolphin"
+  max_file_size: "100MB"  # Maximum PDF file size
+  timeout: 300  # Processing timeout in seconds
+  preserve_layout: true
+  quality_threshold: 0.7
+
+# OCR configuration
+ocr:
+  enabled: true
+  language: "eng"
+  additional_languages:
+    - "fra"
+    - "deu"
+    - "spa"
+  psm_mode: 6  # Assume a single uniform block of text
+  oem_mode: 3  # Default, based on what is available
+
+# Feature flags
+features:
+  extract_images: true
+  extract_tables: true
+  extract_annotations: true
+  extract_forms: false
+  preserve_fonts: true
+  detect_columns: true
+
+# Image processing
+images:
+  max_resolution: 2048
+  format: "PNG"
+  quality: 95
+  compression: true
+
+# Performance tuning
+performance:
+  max_concurrent_jobs: 4
+  memory_limit: "2GB"
+  use_multiprocessing: true
+  cache_enabled: true
+  cache_size: 100  # Number of processed documents to cache
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "/var/log/dolphin.log"
+  max_size: "10MB"
+  backup_count: 5
+
+# Monitoring
+monitoring:
+  metrics_enabled: true
+  health_check_interval: 30
+  prometheus_port: 8013
+
+# Security
+security:
+  max_pages: 1000  # Maximum pages per document
+  allowed_extensions:
+    - ".pdf"
+  virus_scan: false  # Enable if antivirus is available
+  sandbox_mode: true  # Run processing in sandboxed environment

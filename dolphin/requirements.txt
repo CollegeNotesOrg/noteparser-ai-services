@@ -1,0 +1,23 @@
+# Core dependencies
+flask>=2.3.0
+flask-cors>=4.0.0
+flask-restful>=0.3.10
+
+# PDF processing
+PyMuPDF>=1.23.0
+pdfplumber>=0.10.0
+
+# OCR capabilities
+pytesseract>=0.3.10
+opencv-python>=4.8.0
+pillow>=10.0.0
+numpy>=1.24.0
+
+# Data validation and serialization
+pydantic>=2.5.0
+
+# Monitoring
+prometheus-client>=0.19.0
+
+# Utility
+pathlib2>=2.3.7
