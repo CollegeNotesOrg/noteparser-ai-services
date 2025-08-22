@@ -88,8 +88,6 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/CollegeNotesOrg/noteparser-ai-services
-    - icon: fontawesome/brands/docker
-      link: https://hub.docker.com/r/noteparser/ai-services
   version:
     provider: mike
   analytics:

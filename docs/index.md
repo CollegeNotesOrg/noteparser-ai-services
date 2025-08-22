@@ -105,11 +105,13 @@ graph TB
     RagFlow --> AI[AI Models<br/>OpenAI/Anthropic]
     DeepWiki --> AI
     
-    style RagFlow fill:#e1f5fe
-    style DeepWiki fill:#f3e5f5
-    style VectorDB fill:#fff3e0
-    style Database fill:#e8f5e8
-    style AI fill:#fff8e1
+    classDef service fill:#2196f333,stroke:#2196f3,stroke-width:2px,color:#000
+    classDef storage fill:#ff980033,stroke:#ff9800,stroke-width:2px,color:#000
+    classDef ai fill:#4caf5033,stroke:#4caf50,stroke-width:2px,color:#000
+    
+    class RagFlow,DeepWiki service
+    class VectorDB,Database,Cache storage
+    class AI ai
 ```
 
 ---

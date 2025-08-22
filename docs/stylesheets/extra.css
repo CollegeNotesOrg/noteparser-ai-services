@@ -355,3 +355,54 @@
 [data-md-color-scheme="slate"] .timeline-item::before {
     border-color: var(--md-default-bg-color);
 }
+
+/* Mermaid diagram dark mode support */
+[data-md-color-scheme="slate"] .mermaid svg {
+    background-color: transparent !important;
+}
+
+/* Ensure text is visible in dark mode */
+[data-md-color-scheme="slate"] .mermaid .nodeLabel,
+[data-md-color-scheme="slate"] .mermaid .edgeLabel,
+[data-md-color-scheme="slate"] .mermaid text {
+    fill: var(--md-default-fg-color) !important;
+    color: var(--md-default-fg-color) !important;
+}
+
+/* Style nodes with semi-transparent backgrounds */
+[data-md-color-scheme="slate"] .mermaid .node rect,
+[data-md-color-scheme="slate"] .mermaid .node circle,
+[data-md-color-scheme="slate"] .mermaid .node ellipse,
+[data-md-color-scheme="slate"] .mermaid .node polygon {
+    fill-opacity: 0.9 !important;
+}
+
+/* Service nodes - blue theme */
+[data-md-color-scheme="slate"] .mermaid .service > rect {
+    fill: #1976d2 !important;
+    stroke: #42a5f5 !important;
+}
+
+/* Storage nodes - orange theme */
+[data-md-color-scheme="slate"] .mermaid .storage > rect,
+[data-md-color-scheme="slate"] .mermaid .storage > polygon {
+    fill: #f57c00 !important;
+    stroke: #ffa726 !important;
+}
+
+/* AI nodes - green theme */
+[data-md-color-scheme="slate"] .mermaid .ai > rect {
+    fill: #388e3c !important;
+    stroke: #66bb6a !important;
+}
+
+/* Edge paths in dark mode */
+[data-md-color-scheme="slate"] .mermaid .edgePath path {
+    stroke: var(--md-default-fg-color--light) !important;
+}
+
+/* Arrow markers */
+[data-md-color-scheme="slate"] .mermaid marker path {
+    fill: var(--md-default-fg-color--light) !important;
+    stroke: var(--md-default-fg-color--light) !important;
+}
